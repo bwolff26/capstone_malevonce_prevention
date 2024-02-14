@@ -1,0 +1,94 @@
+Capstone idears:
+
+https://raw.githubusercontent.com/awesomedata/awesome-public-datasets/master/README.rst
+
+something with art:
+	the met... under museums
+
+
+
+something with language
+
+	brroooo  like riesh pesachim - preictors of future succuess per how they speakk
+ie like criminals....
+
+but could do with anything: president,s actors, etc.
+
+
+fake news dataset, got hte link from kaggle
+
+
+stam, look up the 'publicdomains'section.... os many juicy things there
+
+
+
+brooooooo
+	I just found a link to texas inmates last words...
+		https://www.tdcj.texas.gov/death_row/dr_executed_offenders.html
+Perhaps I can do a difference between those and tweets/reddits... 
+
+Based on social media posts....
+
+also, look up 'complementary collections'
+
+
+
+Perhaps something with suicide.
+
+brooo
+based upon likes, which century/country are you most like?
+
+Number of tweets in the past 24 hours...
+
+
+
+https://www.kaggle.com/datasets/syedabbasraza/suspicious-tweets
+
+
+~~~~~~~
+
+P1: Large school board
+	Just care about results...
+
+P2: Police force
+	Focus on interpreability, as reources...
+
+~~~~
+
+Steve i1 - crpyto telegramsnetiment trader 
+	gaug positivity/neg. re. a crypto to see gauge...
+
+
+Daniel Kim - focused on 
+
+Danyn Cohen
+	music driven therapy...
+	
+	Seems neat, but seems like so much work...
+
+	re. 2, natural sound, how to gauge that? Ie beat....
+		Plus, what ar the participation? Ie, I'd imagne less people listen to that...
+
+sumit - if suicidal, maybe run it through a second model - scale ie resolv via school vs. police
+
+sonyah - degrees of scale.... and perhaps generalize by local sevices...
+
+aaran - football injury length preditions
+
+
+besides data, how exactly would this be useful? ie for marketing?
+	I mean, it's fo sure super cool, but...
+		Ie for them to know what to do in the meantime?
+		For their wives?
+		Fo reportes?>
+2 historical episode ecommnder
+	boss, but data...
+
+Heahte - fod app...
+	Besides not too many ingredients, which she allude dto,
+	time to cook
+	equipment needed to cook
+	spices, tc. needed
+
+p2 - space app idea----
+	bring cool factoids about the general bro, specific
