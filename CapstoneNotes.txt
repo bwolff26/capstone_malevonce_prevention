@@ -1,0 +1,42 @@
+CapstoneNotes:
+
+Re. data gathering:
+
+Yeah, the teamisn't keen o n the scrub sources...
+
+Again, our baseline are the following two:
+
+https://www.kaggle.com/datasets/syedabbasraza/suspicious-tweets/data
+last updated '3 years ago', currently 2/20/24:
+the suspicious tweet dataset is collected from twitter and containing almost 60k tweets. if we talk about suspicious so its a very broad term the tagging of this dataset is based on three major categories that are cyberbullying, terrorisms , threatening so
+loloool somebody else had th same issu I had and commentsed.... still no response
+
+Furthermore, how was it assigned 'nn-/suspicous'??
+
+https://github.com/bwolff26/twitter-suicidal-intention-dataset/tree/master
+
+This repository contains the tweet data of suicidal intention and no intention data. The dataset is in following format
+Wih no words on how it was gathered...
+
+S, the search continues.
+
+Apparently I can only get 10k posts per ther api a month... and that's after paying 100 bones... forget it.
+
+Google--> alternative search engines
+	try quant
+
+Tyvm Snyah re. link to the giant hate speach data website
+
+Hmm, re. the hatespach one. like the socnd one:
+https://github.com/avaapm/hatespeech
+cagritoraman@gmail.com re. potentially asking him to get it in a diff.f ormat
+
+
+yesss ne with text finally
+https://github.com/amandacurry/convabuse/tree/main
+https://aclanthology.org/2021.emnlp-main.587
+
+Second is 'Measuring Hate speach:
+
+https://arxiv.org/abs/2009.10277
+https://huggingface.co/datasets/ucberkeley-dlab/measuring-hate-speech
