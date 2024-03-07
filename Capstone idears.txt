@@ -92,3 +92,75 @@ Heahte - fod app...
 
 p2 - space app idea----
 	bring cool factoids about the general bro, specific
+
+~~~~~~~~~~~~~~~~
+
+Hmm, it just dawned on me - isn't using the target features somehwat, ironically considering the name, getting to the target of detecting if it's hate speach
+Ie I have an anti-semestic statement and I'm pondering if it's hateful. Is not the mere identification that it's talking about Jews already half-way therE?
+
+Ie would it not be artificially basically telling the model 'hey.... this is about taget group x; well, albeit it's talking about Jews but perhaps it's benign
+	Then their addition basically devolves into are they usually mentioned in a positive or negative context..
+However, I do think supplying the mdoel with tones such as 'hey, this text is genocidal' and the like is better; def. hate speach? As it's getting into an emotion
+conveyed by the words that the robot usually woudl not know. 
+
+QQQQ imbalanced data... ie recall that our 2 group is only 6% of total...
+
+So,c hecking stuff fom W6:
+
+m1: Oversample the minority class:
+
+pipe = make_pipeline(RandomOverSampler(random_state=34),
+                    LogisticRegression(max_iter=1000))
+gs = GidSearchCV(pipe,
+                param_grid={'randomoversampler__sampling_strategy' : [.25, .5, .75, 1.0]},
+                           n_jobs=-1)
+
+gs2 = GidSearchCV(pipe,
+                param_grid={'randomoversampler__sampling_strategy' : [.25, .5, .75, 1.0]},
+                           n_jobs=-1, scoring='balanced_accuracy')
+
+
+
+m2: artifical data
+from imblearn.over_sampling import SMOTE
+"ADASYN focuses on generating samples next to the original samples which are wrongly classified using a k-Nearest Neighbors classifier while the basic implementation of SMOTE will not make any distinction between easy and hard samples to be classified using the nearest neighbors rule." - the docs
+
+m3: logr5 = LogisticRegression(max_iter=1000, class_weight=)
+m4 chang class cutoff threshold
+
+'imbalanced lear' library of scikit learn
+eric - look at sepcficity fo that class..
+[tw, three stadard deviations away...]
+Q re.viewing metrics
+
+at least your key metric 0; eh, you ca just obscur it...
+
+Note that tfidf and cvec don't capture context; transformers would...
+
+Re. using targets:
+
+Off hand I think they get .85, so aim for that..
+
+Sonyah:
+sklearn.__version__
+
+Terminal,
+https://pip.pypa.io/en/stable/cli/pip_freeze/
+
+Again, let's go over the following: We have huge clas imblanace... so, let us strive to balance it.
+How do we do that? Well, 
+
+
+Anyways, to do list:
+
+TUNE for etiher sensitivity for 2 or specificity of 0...we can't jsut have the generic scorer...
+Platform
+Capital Sentance
+WC Cleaned Text
+
+with open('veggies.pkl', 'wb') as f:#wb ie write bytes
+    pickle.dump(my_vegetables, f)
+
+with open('veggies.pkl', 'rb') as f: #reading bytes
+    foo = pickle.load(f)
+	Pickle model....
