@@ -1,3 +1,6 @@
+#Unique files to this project (malevonce prevention):
+data/02_MeasuringHateSpeech.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
