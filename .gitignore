@@ -1,5 +1,8 @@
 #Unique files to this project (malevonce prevention):
 data/02_MeasuringHateSpeech.csv
+data/cleaned_02_i.csv
+Capstone idears.txt
+CapstoneNotes.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

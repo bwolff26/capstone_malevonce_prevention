@@ -25,50 +25,66 @@ def document_words(raw_document):
     stemmed_words = [p_stemmer.stem(i, to_lowercase=False) for i in words]
     return(" ".join(stemmed_words))
 
-def prob_scanner_account(df, thresh_2=.58, thresh_1=.94, one_response=3):
+def prob_scanner_account(df, thresh_2=.58, thresh_1=.94, one_response=2):
     overall = 1
-    count_2s = df['pred'].value_counts()[2]
-    thresh_2 -= .05 * count_2s
-    if df[df['max_prob']==df['max_prob'].max()].iloc[0]['p_2'] > thresh_2 and df[df['max_prob']==df['max_prob'].max()].iloc[0]['pred'] == 2:
-        return "calling the principal AND your guardians"
-    count_1s = df['pred'].value_counts()[1] + df['pred'].value_counts()[2]
+    try:
+        count_2s = df['pred'].value_counts()[2]
+        thresh_2 -= .05 * count_2s #Eh, could have simplified in one line, but whatever.
+        if df[df['prob']==df['prob'].max()].iloc[0]['p_2'] > thresh_2 and df[df['prob']==df['max_prob'].max()].iloc[0]['pred'] == 2:
+            return "calling the principal AND your guardians"
+    except:
+        pass
+    count_1s = 0
+    try:
+        count_1s += df['pred'].value_counts()[1]
+    except:
+        pass
+    try:
+        count_1s += df['pred'].value_counts()[2]
+    except:
+        pass
     thresh_1 -= .03 * count_1s
     if df[df['pred']!=0]['1_prob'].mean() > thresh_1 and count_1s >= one_response:
-        return "calling the principal"  
+        return "calling the principal"
+    else:
+        return "free...for now"
 ###############################################
 ###############################################
 ###############################################
 #Inserts for dictionary
 
-st.title('Hate Speach Analyzer')
+st.title('Hate Speech Analyzer')
 
-st.subheader('Please use our app to recommend if a series of posts should require human inspection for inappropriate behavior.')
-st.subheader('Note, our model focuses on individual posts; our app pieces together the individual probabilities to determine the liklihood of intervening..')
+st.subheader('Please use the app to recommend if a series of posts should require human inspection for inappropriate behavior.')
+st.subheader('Note, the model used focuses on individual posts; the app pieces togethe individual probabilities to determine the liklihood of intervening..')
+st.subheader("By default in the app, only three or more 'mild' hate speech comments will get a student called to the principal's office; just one 'extreme' comment on the other hand ...")
+
 
 txt = st.text_area('Write your posts here; pleasee delineate them with a semi-colon (;).').strip()
 
 if st.button('Submit'):
-    demo_logs=txt.split(';')  
-    sample = pd.DataFrame({'cleaned_comments':demo_logs})
-    sample['cleaned_comments'] = sample['cleaned_comments'].apply(document_words)  
+    posts=txt.split(';')
+    sample = pd.DataFrame({'post':posts})
+    sample['cleaned_post'] = sample['post'].apply(document_words)
     
-    preds = model.predict(sample['cleaned_comments'])
-    preds_prob = model.predict_proba(sample['cleaned_comments'])
+    preds = model.predict(sample['cleaned_post'])
+    preds_prob = model.predict_proba(sample['cleaned_post'])
     sample_pred_comparer = pd.DataFrame({
-    #'cleaned_text':X_test
-    #,'actual':y_test
-    'pred':preds
-    ,'p_0':preds_prob[:,0]
-    ,'p_1':preds_prob[:,1]
-    ,'p_2':preds_prob[:,2]
+        'post':sample['post']
+        ,'pred':preds
+        ,'p_0':preds_prob[:,0]
+        ,'p_1':preds_prob[:,1]
+        ,'p_2':preds_prob[:,2]
     })
-    sample_pred_comparer['max_prob'] = sample_pred_comparer[['p_0','p_1','p_2']].max(axis=1)
-    sample_pred_comparer['1_prob'] = [sample_pred_comparer.loc[i, 'p_0'] if sample_pred_comparer.loc[i, 'pred'] == 0
+    sample_pred_comparer['prob'] = sample_pred_comparer[['p_0','p_1','p_2']].max(axis=1)
+    sample_pred_comparer['1_prob'] = [sample_pred_comparer.loc[i, 'p_1'] if sample_pred_comparer.loc[i, 'pred'] == 0
                                                       else (1-sample_pred_comparer.loc[i, 'p_0'])
                                                       for i in range(sample_pred_comparer.shape[0])]
- 
     st.write(prob_scanner_account(sample_pred_comparer))
+    st.write("And here are their respective predictions and probabilities:")
+    st.write(sample_pred_comparer.sort_values('prob', ascending=False).sort_values('pred', ascending=False).loc[:,["post","pred","prob"]])
     
+            
 #   if len(txt) > 0:
 #     pred = model.predict([txt])[0]
 #     probs = list(model.predict_proba([txt])[0])
