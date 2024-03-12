@@ -17,7 +17,7 @@ model = load_model()
 
 def document_words(raw_document):
 
-    document_text = BeautifulSoup(raw_document).get_text()
+    document_text = BeautifulSoup(raw_document, features="lxml").get_text()
     letters_only = re.sub("[^a-zA-Z0-9]", " ", document_text)
     words = letters_only.split()
     words = [w.lower() for w in words]
@@ -29,8 +29,9 @@ def prob_scanner_account(df, thresh_2=.58, thresh_1=.83, one_response=3):
     overall = 1
     try:
         count_2s = df['pred'].value_counts()[2]
-        thresh_2 -= .05 * count_2s #Eh, could have simplified in one line, but whatever.
-        if df[df['prob']==df['prob'].max()].iloc[0]['p_2'] > thresh_2 and df[df['prob']==df['max_prob'].max()].iloc[0]['pred'] == 2:
+        thresh_2 -= .05 * max(count_2s-1,0) #Eh, could have simplified in one line, but whatever.
+        print(thresh_2)
+        if df[df['prob']==df['prob'].max()].iloc[0]['p_2'] > thresh_2 and df[df['prob']==df['prob'].max()].iloc[0]['pred'] == 2:
             return "calling the principal AND your guardians"
     except:
         pass
@@ -76,7 +77,7 @@ if st.button('Submit'):
         ,'p_1':preds_prob[:,1]
         ,'p_2':preds_prob[:,2]
     })
-    sample_pred_comparer['prob'] = sample_pred_comparer[['p_0','p_1','p_2']].max(axis=1)
+    sample_pred_comparer['prob'] = round(sample_pred_comparer[['p_0','p_1','p_2']].max(axis=1),3)
     sample_pred_comparer['1_prob'] = [sample_pred_comparer.loc[i, 'p_1'] if sample_pred_comparer.loc[i, 'pred'] == 0
                                                       else (1-sample_pred_comparer.loc[i, 'p_0'])
                                                       for i in range(sample_pred_comparer.shape[0])]
