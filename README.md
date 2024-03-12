@@ -44,6 +44,8 @@ The other major pragmatic thing to do would be to continue experimenting with Su
 -[Constructing interval variables via faceted Rasch measurement and multitask deep learning: a hate speech application](https://arxiv.org/abs/2009.10277)(https://huggingface.co/datasets/ucberkeley-dlab/measuring-hate-speech)
 -[Image of a child getting punishd](https://medium.com/@sonali.srijan.13/mommy-the-teacher-hit-me-my-experiences-with-corporal-punishment-a41f7b1ce101)
 -[Image of a woman in jail](https://www.thecut.com/2016/08/incarcerated-women-held-in-jail.html)
+-[Image of 'Warning'](https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fimages%2Fwarning-viewer-discretion-is-advised-text-sign-video-photo-content-post-black-background%2F426406049&psig=AOvVaw00KDgMSKPuQdJYZn7CkCCT&ust=1710350311121000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCMDYiced74QDFQAAAAAdAAAAABAE)
+-[Image of a man answering questions in class](https://st2.depositphotos.com/1037987/10994/i/950/depositphotos_109949170-stock-photo-kids-raising-hands-to-answer.jpg)
 
 Although not directly used in this project, I would still like to link the following website, the one that referenced this dataset as well as many others:
 -[Hate Speech Data](https://hatespeechdata.com/)

@@ -25,7 +25,7 @@ def document_words(raw_document):
     stemmed_words = [p_stemmer.stem(i, to_lowercase=False) for i in words]
     return(" ".join(stemmed_words))
 
-def prob_scanner_account(df, thresh_2=.58, thresh_1=.94, one_response=2):
+def prob_scanner_account(df, thresh_2=.58, thresh_1=.83, one_response=3):
     overall = 1
     try:
         count_2s = df['pred'].value_counts()[2]
@@ -43,7 +43,7 @@ def prob_scanner_account(df, thresh_2=.58, thresh_1=.94, one_response=2):
         count_1s += df['pred'].value_counts()[2]
     except:
         pass
-    thresh_1 -= .03 * count_1s
+    thresh_1 -= .02 * max(0,count_1s-one_response)
     if df[df['pred']!=0]['1_prob'].mean() > thresh_1 and count_1s >= one_response:
         return "calling the principal"
     else:
