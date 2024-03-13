@@ -30,8 +30,7 @@ def prob_scanner_account(df, thresh_2=.58, thresh_1=.83, one_response=3):
     try:
         count_2s = df['pred'].value_counts()[2]
         thresh_2 -= .05 * max(count_2s-1,0) #Eh, could have simplified in one line, but whatever.
-        print(thresh_2)
-        if df[df['prob']==df['prob'].max()].iloc[0]['p_2'] > thresh_2 and df[df['prob']==df['prob'].max()].iloc[0]['pred'] == 2:
+        if df[df['p_2']==df['p_2'].max()].iloc[0]['p_2'] > thresh_2:
             return "calling the principal AND your guardians"
     except:
         pass
@@ -57,8 +56,8 @@ def prob_scanner_account(df, thresh_2=.58, thresh_1=.83, one_response=3):
 st.title('Hate Speech Analyzer')
 
 st.subheader('Please use the app to recommend if a series of posts should require human inspection for inappropriate behavior.')
-st.subheader('Note, the model used focuses on individual posts; the app pieces togethe individual probabilities to determine the liklihood of intervening..')
-st.subheader("By default in the app, only three or more 'mild' hate speech comments will get a student called to the principal's office; just one 'extreme' comment on the other hand ...")
+st.subheader('Note, the model being used focuses on individual posts; the app pieces together individual probabilities to determine the likelihood of intervening..')
+st.subheader("By default in the app, only three or more 'general' hate speech comments will get a student called to the principal's office; just one 'toxic' comment on the other hand ...")
 
 
 txt = st.text_area('Write your posts here; pleasee delineate them with a semi-colon (;).').strip()
