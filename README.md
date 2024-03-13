@@ -52,21 +52,14 @@ Although not directly used in this project, I would still like to link the follo
 
 Finally, I refuse to not thank in this document my instructors at General Assembly's Data Science Immersive: Misfiqur Rahman, Sonyah Seiden, and Eric Bayless.
 
+## Packages Used
 
-## Features to Consider
-
-#conssider: besides usual cvecs:
-#presence of @
-#presence of links
-#Actually written properly?
-#original word count
-    #figure out re. links, emojis, etc.
-#presecence of emojis
-#presence of capital letters
-    #i...mot of the time...
-#presence of slang
-    #liekly too hard to do for a computer.... ie could code t like 2...
-#claned word count...
-#Racial words
-#Other deragoratry/assumed negative words, such as 'midget' 'miniscule' 'fat'
-#change of words...
+bs4 0.0.2
+matplotlib 3.8.3
+nltk
+numpy 1.24.3
+pandas 2.0.3
+regex 2.5.116
+scipy 1.11.1
+scikit-learn - 1.4.0
+streamlit 1.30.0
